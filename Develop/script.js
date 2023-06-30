@@ -64,8 +64,9 @@ function generatePassword() {
     }
     console.log(newPassArray);
     const newPassString = newPassArray.join('');
+    password.string = newPassString;
     console.log(newPassString);
-    return newPassString;
+    return password.string;
   }
 
   updatePasswordRequirements();
