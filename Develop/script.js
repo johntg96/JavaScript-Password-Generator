@@ -28,20 +28,19 @@ function generatePassword() {
 
     const newPassArray = [];
     // cycle through a for loop to choose a random character for each index value
-
     if (password.specialCharacters === true) {
       for (i = 0; i < password.characterLength; i++) {
         randomTypeChoice = Math.floor(Math.random() * 3);
         console.log(`randomTypeChoice: ${randomTypeChoice}`);
   
         if (randomTypeChoice === 0) {
-          // add a random index value string from the alphabet array to newPass
+          // add a random index value string from the alphabet array to newPassArra;
           newPassArray[i] = alphabet[Math.floor(Math.random() * alphabet.length)]
         } else if (randomTypeChoice === 1) {
-          // add a random index value integer from the numbers array to newPass
+          // add a random index value integer from the numbers array to newPassArray
           newPassArray[i] = numbers[Math.floor(Math.random() * numbers.length)]
         } else if (randomTypeChoice === 2) {
-          // add a random index value special character from the specialCharacters array to newPass
+          // add a random index value special character from the specialCharacters array to newPassArray
           newPassArray[i] = specialCharacters[Math.floor(Math.random() * specialCharacters.length)]
         } else {
           console.log(`error`);
@@ -52,11 +51,11 @@ function generatePassword() {
         randomTypeChoice = Math.floor(Math.random() * 2);
         console.log(`randomTypeChoice: ${randomTypeChoice}`);
   
-        if (randomTypeChoice <= 0) {
-          // add a random index value string from the alphabet array to newPass
+        if (randomTypeChoice === 0) {
+          // add a random index value string from the alphabet array to newPassArray
           newPassArray[i] = alphabet[Math.floor(Math.random() * alphabet.length)]
         } else if (randomTypeChoice === 1) {
-          // add a random index value integer from the numbers array to newPass
+          // add a random index value integer from the numbers array to newPassArray
           newPassArray[i] = numbers[Math.floor(Math.random() * numbers.length)]
         } else {
           console.log(`error`);
