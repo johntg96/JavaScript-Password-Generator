@@ -6,6 +6,10 @@ var specialCharacters = ['!', '”', '#', '$', '%', '&', "'", '(', ')', '*', '+'
 
 var generateBtn = document.querySelector("#generate");
 
+function getRandomInteger(max) {
+  return Math.floor(Math.random() * max);
+}
+
 function generatePassword() {
 
   var password = {
@@ -27,45 +31,46 @@ function generatePassword() {
   function newPassword() {
 
     const newPassArray = [];
-    // cycle through a for loop to choose a random character for each index value
+    // cycle through a for loop to choose a random character from a random array for each index value
     if (password.specialCharacters === true) {
       for (i = 0; i < password.characterLength; i++) {
-        randomTypeChoice = Math.floor(Math.random() * 3);
+        // randomly decide which character array to choose random character from
+        randomTypeChoice = getRandomInteger(3);
         console.log(`randomTypeChoice: ${randomTypeChoice}`);
   
         if (randomTypeChoice === 0) {
           // add a random index value string from the alphabet array to newPassArra;
-          newPassArray[i] = alphabet[Math.floor(Math.random() * alphabet.length)]
+          newPassArray[i] = alphabet[getRandomInteger(alphabet.length)];
         } else if (randomTypeChoice === 1) {
           // add a random index value integer from the numbers array to newPassArray
-          newPassArray[i] = numbers[Math.floor(Math.random() * numbers.length)]
+          newPassArray[i] = numbers[getRandomInteger(numbers.length)];
         } else if (randomTypeChoice === 2) {
           // add a random index value special character from the specialCharacters array to newPassArray
-          newPassArray[i] = specialCharacters[Math.floor(Math.random() * specialCharacters.length)]
+          newPassArray[i] = specialCharacters[getRandomInteger(specialCharacters.length)];
         } else {
           console.log(`error`);
         }
       }
-    } else {
+    } 
+    // If special characters are not wanted, then this logic is used to generate the password array without them.
+    else {
       for (i = 0; i < password.characterLength; i++) {
-        randomTypeChoice = Math.floor(Math.random() * 2);
+        randomTypeChoice = getRandomInteger(2);
         console.log(`randomTypeChoice: ${randomTypeChoice}`);
-  
         if (randomTypeChoice === 0) {
-          // add a random index value string from the alphabet array to newPassArray
-          newPassArray[i] = alphabet[Math.floor(Math.random() * alphabet.length)]
+          newPassArray[i] = alphabet[getRandomInteger(alphabet.length)];
         } else if (randomTypeChoice === 1) {
-          // add a random index value integer from the numbers array to newPassArray
-          newPassArray[i] = numbers[Math.floor(Math.random() * numbers.length)]
+          newPassArray[i] = numbers[getRandomInteger(numbers.length)];
         } else {
           console.log(`error`);
         }
       }
     }
-    console.log(newPassArray);
+    // joins the characters in the array that were chosen randomly to one string
+    // updates string property value of password object and returns it
     const newPassString = newPassArray.join('');
     password.string = newPassString;
-    console.log(newPassString);
+    console.log(password.string);
     return password.string;
   }
 
