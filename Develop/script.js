@@ -25,7 +25,7 @@ function generatePassword() {
     password.characterLength = parseInt(howManycharacters);
     password.specialCharacters = includeSpecialCharacters;
 
-    console.log(password);
+    //console.log(password);
   }
 
   function newPassword() {
@@ -36,7 +36,7 @@ function generatePassword() {
       for (i = 0; i < password.characterLength; i++) {
         // randomly decide which character array to choose random character from
         randomTypeChoice = getRandomInteger(3);
-        console.log(`randomTypeChoice: ${randomTypeChoice}`);
+        //console.log(`randomTypeChoice: ${randomTypeChoice}`);
   
         if (randomTypeChoice === 0) {
           // add a random index value string from the alphabet array to newPassArra;
@@ -48,7 +48,7 @@ function generatePassword() {
           // add a random index value special character from the specialCharacters array to newPassArray
           newPassArray[i] = specialCharacters[getRandomInteger(specialCharacters.length)];
         } else {
-          console.log(`error`);
+          console.log(`error`); // this should never fire
         }
       }
     } 
@@ -56,13 +56,13 @@ function generatePassword() {
     else {
       for (i = 0; i < password.characterLength; i++) {
         randomTypeChoice = getRandomInteger(2);
-        console.log(`randomTypeChoice: ${randomTypeChoice}`);
+        //console.log(`randomTypeChoice: ${randomTypeChoice}`);
         if (randomTypeChoice === 0) {
           newPassArray[i] = alphabet[getRandomInteger(alphabet.length)];
         } else if (randomTypeChoice === 1) {
           newPassArray[i] = numbers[getRandomInteger(numbers.length)];
         } else {
-          console.log(`error`);
+          console.log(`error`); // this should never fire
         }
       }
     }
