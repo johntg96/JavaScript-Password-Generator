@@ -36,17 +36,12 @@ function generatePassword() {
       }
     }
 
-    // TO-DO: write logic to set boolean password object properties lowerCase and upperCase.
-    // includeUpperCase
-    // includeLowerCase
     const includeUpperCase = confirm(`Do you want to include uppercase characters? (mixed case)`);
     const includeSpecialCharacters = confirm(`Special characters?`);
 
     password.characterLength = parseInt(howManyCharacters);
     password.upperCase = includeUpperCase;
     password.specialCharacters = includeSpecialCharacters;
-
-    //console.log(password);
   }
 
   function newPassword() {
@@ -97,7 +92,7 @@ function generatePassword() {
       }
     }
     // joins the characters in the array that were chosen randomly to one string
-    // updates string property value of password object and returns it
+    // updates password object string property value and returns it
     const newPassString = newPassArray.join('');
     password.string = newPassString;
     console.log(password.string);
