@@ -15,7 +15,7 @@ function generatePassword() {
   var password = {
     string: 'password-goes-here',
     characterLength: 0,
-    lowerCase: true,
+    lowerCase: true, // lowerCase is a property that is never used (yet)
     upperCase: true,
     specialCharacters: true
   };
@@ -39,9 +39,11 @@ function generatePassword() {
     // TO-DO: write logic to set boolean password object properties lowerCase and upperCase.
     // includeUpperCase
     // includeLowerCase
-    includeSpecialCharacters = confirm(`Special characters?`);
+    const includeUpperCase = confirm(`Do you want to include uppercase characters? (mixed case)`);
+    const includeSpecialCharacters = confirm(`Special characters?`);
 
     password.characterLength = parseInt(howManyCharacters);
+    password.upperCase = includeUpperCase;
     password.specialCharacters = includeSpecialCharacters;
 
     //console.log(password);
@@ -59,7 +61,12 @@ function generatePassword() {
   
         if (randomTypeChoice === 0) {
           // add a random index value string from the alphabet array to newPassArra;
-          newPassArray[i] = alphabet[getRandomInteger(alphabet.length)];
+          // 50/50 chance letter chosen will be capitalized by the toUpperCase method.
+          if (getRandomInteger(2) === 0) {
+            newPassArray[i] = alphabet[getRandomInteger(alphabet.length)].toUpperCase();
+          } else {
+            newPassArray[i] = alphabet[getRandomInteger(alphabet.length)];
+          }
         } else if (randomTypeChoice === 1) {
           // add a random index value integer from the numbers array to newPassArray
           newPassArray[i] = numbers[getRandomInteger(numbers.length)];
@@ -67,7 +74,7 @@ function generatePassword() {
           // add a random index value special character from the specialCharacters array to newPassArray
           newPassArray[i] = specialCharacters[getRandomInteger(specialCharacters.length)];
         } else {
-          console.log(`error`); // this should never fire
+          // do nothing
         }
       }
     } 
@@ -77,11 +84,15 @@ function generatePassword() {
         randomTypeChoice = getRandomInteger(2);
         //console.log(`randomTypeChoice: ${randomTypeChoice}`);
         if (randomTypeChoice === 0) {
-          newPassArray[i] = alphabet[getRandomInteger(alphabet.length)];
+          if (getRandomInteger(2) === 0) {
+            newPassArray[i] = alphabet[getRandomInteger(alphabet.length)].toUpperCase();
+          } else {
+            newPassArray[i] = alphabet[getRandomInteger(alphabet.length)];
+          }
         } else if (randomTypeChoice === 1) {
           newPassArray[i] = numbers[getRandomInteger(numbers.length)];
         } else {
-          console.log(`error`); // this should never fire
+          // do nothing
         }
       }
     }
