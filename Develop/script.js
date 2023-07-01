@@ -15,14 +15,33 @@ function generatePassword() {
   var password = {
     string: 'password-goes-here',
     characterLength: 0,
+    lowerCase: true,
+    upperCase: true,
     specialCharacters: true
   };
 
   function updatePasswordRequirements() {
-    howManycharacters = prompt(`How many characters?`);
+    howManyCharacters = prompt(`How many characters?`);
+
+    // password must be longer than 8 characters and shorter than 128
+    while (parseInt(howManyCharacters) < 8 || parseInt(howManyCharacters) > 128) {
+      if (parseInt(howManyCharacters) < 8) {
+        alert(`Password must be at least 8 characters`)
+        howManyCharacters = prompt('How many characters?');
+      } else if (parseInt(howManyCharacters) > 128) {
+        alert('Password must be shorter than 128 characters')
+        howManyCharacters = prompt('How many characters?');
+      } else {
+        break;
+      }
+    }
+
+    // TO-DO: write logic to set boolean password object properties lowerCase and upperCase.
+    // includeUpperCase
+    // includeLowerCase
     includeSpecialCharacters = confirm(`Special characters?`);
 
-    password.characterLength = parseInt(howManycharacters);
+    password.characterLength = parseInt(howManyCharacters);
     password.specialCharacters = includeSpecialCharacters;
 
     //console.log(password);
