@@ -79,11 +79,7 @@ function generatePassword() {
         randomTypeChoice = getRandomInteger(2);
         //console.log(`randomTypeChoice: ${randomTypeChoice}`);
         if (randomTypeChoice === 0) {
-          if (getRandomInteger(2) === 0) {
-            newPassArray[i] = alphabet[getRandomInteger(alphabet.length)].toUpperCase();
-          } else {
             newPassArray[i] = alphabet[getRandomInteger(alphabet.length)];
-          }
         } else if (randomTypeChoice === 1) {
           newPassArray[i] = numbers[getRandomInteger(numbers.length)];
         } else {
