@@ -1,10 +1,10 @@
-var alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
+const alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
 
-var numbers = ['0','1', '2', '3', '4', '5', '6', '7', '8', '9'];
+const numbers = ['0','1', '2', '3', '4', '5', '6', '7', '8', '9'];
 
-var specialCharacters = ['!', '”', '#', '$', '%', '&', "'", '(', ')', '*', '+', ',', '-', '.', '/', '<', '=', '>', '?', '@', '[', '\\', ']', '^', '_', '~'];
+const specialCharacters = ['!', '”', '#', '$', '%', '&', "'", '(', ')', '*', '+', ',', '-', '.', '/', '<', '=', '>', '?', '@', '[', '\\', ']', '^', '_', '~'];
 
-var generateBtn = document.querySelector("#generate");
+const generateBtn = document.querySelector("#generate");
 
 function getRandomInteger(max) {
   return Math.floor(Math.random() * max);
@@ -12,7 +12,7 @@ function getRandomInteger(max) {
 
 function generatePassword() {
 
-  var password = {
+  const password = {
     string: 'password-goes-here',
     characterLength: 0,
     lowerCase: true, // lowerCase is a property that is never used (yet)
@@ -21,7 +21,7 @@ function generatePassword() {
   };
 
   function updatePasswordRequirements() {
-    howManyCharacters = prompt(`How many characters?`);
+    let howManyCharacters = prompt(`How many characters?`);
 
     // password must be longer than 8 characters and shorter than 128
     while (parseInt(howManyCharacters) < 8 || parseInt(howManyCharacters) > 128) {
@@ -100,14 +100,14 @@ function generatePassword() {
   }
 
   updatePasswordRequirements();
-  var generatedPassword = newPassword();
+  const generatedPassword = newPassword();
   return generatedPassword;
 }
 
 // Write password to the #password input
 function writePassword() {
-  var password = generatePassword();
-  var passwordText = document.querySelector("#password");
+  const password = generatePassword();
+  const passwordText = document.querySelector("#password");
 
   passwordText.value = password;
 
