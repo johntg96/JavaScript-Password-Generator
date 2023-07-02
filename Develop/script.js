@@ -57,7 +57,7 @@ function generatePassword() {
         if (randomTypeChoice === 0) {
           // add a random index value string from the alphabet array to newPassArra;
           // 50/50 chance letter chosen will be capitalized by the toUpperCase method.
-          if (getRandomInteger(2) === 0) {
+          if (password.upperCase === true && getRandomInteger(2) === 0) {
             newPassArray[i] = alphabet[getRandomInteger(alphabet.length)].toUpperCase();
           } else {
             newPassArray[i] = alphabet[getRandomInteger(alphabet.length)];
@@ -79,7 +79,11 @@ function generatePassword() {
         randomTypeChoice = getRandomInteger(2);
         //console.log(`randomTypeChoice: ${randomTypeChoice}`);
         if (randomTypeChoice === 0) {
+          if (password.upperCase === true && getRandomInteger(2) === 0) {
+            newPassArray[i] = alphabet[getRandomInteger(alphabet.length)].toUpperCase();
+          } else {
             newPassArray[i] = alphabet[getRandomInteger(alphabet.length)];
+          }
         } else if (randomTypeChoice === 1) {
           newPassArray[i] = numbers[getRandomInteger(numbers.length)];
         } else {
