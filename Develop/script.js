@@ -49,7 +49,7 @@ function generatePassword() {
     const newPassArray = [];
     // cycle through a for loop to choose a random character from a random array for each index value
     if (password.specialCharacters === true) {
-      for (i = 0; i < password.characterLength; i++) {
+      for (let i = 0; i < password.characterLength; i++) {
         // randomly decide which character array to choose random character from
         randomTypeChoice = getRandomInteger(3);
         //console.log(`randomTypeChoice: ${randomTypeChoice}`);
@@ -75,7 +75,7 @@ function generatePassword() {
     } 
     // If special characters are not wanted, then this logic is used to generate the password array without them.
     else {
-      for (i = 0; i < password.characterLength; i++) {
+      for (let i = 0; i < password.characterLength; i++) {
         randomTypeChoice = getRandomInteger(2);
         //console.log(`randomTypeChoice: ${randomTypeChoice}`);
         if (randomTypeChoice === 0) {
